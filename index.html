@@ -628,6 +628,7 @@ footer{color:var(--muted);font-size:.82rem;padding:26px 0 36px;text-align:center
         <button class="cfg-btn" id="cfgExpBtn" title="Export active template as JSON">Export</button>
         <button class="cfg-btn" id="cfgResetBtn" title="Reset the built-in template to defaults">Reset built-in</button>
         <button class="cfg-btn danger" id="cfgDelBtn" title="Delete active template (built-in cannot be deleted)">Delete</button>
+        <button class="cfg-btn" id="cfgHelpBtn" title="Show the quick-start instructions again" style="grid-column:1 / -1;">? Show instructions</button>
       </div>
     </aside>
     <main class="cfg-main">
@@ -1401,7 +1402,13 @@ function openConfig(){
   renderConfig();
   cfgOv.classList.add("open");
 }
-function closeConfig(){ cfgOv.classList.remove("open"); }
+// If the help banner is showing and its 'Don't show again' is checked,
+// honor that even when the user closes the modal via the big X / Esc / backdrop.
+function commitHelpDismissIfNeeded(){
+  const cb = document.getElementById("cfgHelpDontShow");
+  if (cb && cb.checked) localStorage.setItem("mscai.cfg.hideHelp", "1");
+}
+function closeConfig(){ commitHelpDismissIfNeeded(); cfgOv.classList.remove("open"); }
 function toggleConfig(){ cfgOv.classList.contains("open") ? closeConfig() : openConfig(); }
 
 function renderConfig(){
@@ -1719,6 +1726,12 @@ cfgImpFile.addEventListener("change", () => {
 // Close handlers
 document.getElementById("cfgCloseBtn").addEventListener("click", closeConfig);
 cfgOv.addEventListener("click", e => { if (e.target === cfgOv) closeConfig(); });
+
+// Re-show the quick-start help banner.
+document.getElementById("cfgHelpBtn").addEventListener("click", () => {
+  localStorage.removeItem("mscai.cfg.hideHelp");
+  renderConfig();
+});
 
 // Keyboard shortcut: Ctrl/Cmd+Shift+O.
 // Note: Escape is already handled by the IQ-modal listener above; we add the
