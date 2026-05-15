@@ -217,6 +217,92 @@ footer{color:var(--muted);font-size:.82rem;padding:26px 0 36px;text-align:center
 .mc ul{margin:5px 0 10px;padding-left:16px;color:var(--ink-2);font-size:.92rem;}
 .mc ul li{margin-bottom:3px;}
 .mc .pby{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);}
+
+/* ============================================================
+   CONFIG MODAL  (Ctrl/Cmd+Shift+O)
+   ============================================================ */
+.cfg-pill{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);padding:4px 10px;border-radius:999px;margin-left:10px;cursor:pointer;transition:background .18s,color .18s,border-color .18s;}
+.cfg-pill:hover{background:#fff;color:var(--ms-blue);border-color:var(--ms-blue);}
+.cfg-pill .gear{font-size:.85rem;line-height:1;}
+.cfg-fab{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--s1);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--ink-2);z-index:900;transition:transform .2s var(--ease),box-shadow .2s,background .2s,color .2s;}
+.cfg-fab:hover{transform:rotate(45deg);background:var(--ms-blue);color:#fff;box-shadow:0 6px 22px rgba(0,120,212,.35);}
+
+.cfg-ov{position:fixed;inset:0;background:rgba(5,15,40,.78);backdrop-filter:blur(8px);z-index:1100;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .22s var(--ease);}
+.cfg-ov.open{opacity:1;pointer-events:all;}
+.cfg-card{background:#fff;border-radius:16px;width:100%;max-width:1180px;height:min(86vh,860px);display:grid;grid-template-columns:280px 1fr;overflow:hidden;box-shadow:0 30px 90px rgba(10,27,61,.55);transform:translateY(14px);transition:transform .26s var(--ease);}
+.cfg-ov.open .cfg-card{transform:translateY(0);}
+.cfg-rail{background:var(--surface-2);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;}
+.cfg-rail-h{padding:18px 18px 10px;}
+.cfg-rail-h h3{margin:0 0 2px;font-size:1rem;}
+.cfg-rail-h .hint{font-size:.74rem;color:var(--muted);margin:0;}
+.cfg-tlist{flex:1;overflow-y:auto;padding:6px 10px;}
+.cfg-titem{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:9px 11px;border-radius:9px;cursor:pointer;font-size:.88rem;color:var(--ink-2);margin-bottom:3px;border:1px solid transparent;transition:background .15s,border-color .15s;}
+.cfg-titem:hover{background:#fff;}
+.cfg-titem.active{background:#fff;border-color:var(--ms-blue);color:var(--ink);font-weight:600;box-shadow:0 0 0 3px rgba(0,120,212,.1);}
+.cfg-titem .tbadge{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ms-blue);background:rgba(0,120,212,.1);padding:2px 6px;border-radius:999px;}
+.cfg-rail-actions{padding:10px 14px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.cfg-btn{background:#fff;border:1px solid var(--line);color:var(--ink-2);font-weight:600;font-size:.78rem;padding:7px 9px;border-radius:8px;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s,color .15s;}
+.cfg-btn:hover{background:var(--surface);border-color:var(--ms-blue);color:var(--ms-blue);}
+.cfg-btn.primary{background:var(--ms-blue);color:#fff;border-color:var(--ms-blue);}
+.cfg-btn.primary:hover{background:#0066b8;color:#fff;}
+.cfg-btn.danger{color:#be123c;}
+.cfg-btn.danger:hover{background:#fff;border-color:#be123c;color:#be123c;}
+.cfg-btn:disabled{opacity:.4;cursor:not-allowed;}
+
+.cfg-main{display:flex;flex-direction:column;min-height:0;}
+.cfg-main-h{padding:16px 22px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.cfg-main-h h2{margin:0 0 2px;font-size:1.15rem;}
+.cfg-main-h .name-row{display:flex;align-items:center;gap:8px;}
+.cfg-tname{font-size:1rem;font-weight:700;border:1px solid transparent;background:transparent;padding:3px 6px;border-radius:6px;color:var(--ink);font-family:inherit;min-width:200px;}
+.cfg-tname:hover,.cfg-tname:focus{border-color:var(--line);background:var(--surface);outline:none;}
+.cfg-cclose{background:var(--surface-2);border:1px solid var(--line);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;}
+.cfg-cclose:hover{background:var(--line);}
+.cfg-body{flex:1;overflow-y:auto;padding:16px 22px 22px;}
+.cfg-pbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.cfg-pbar .count{font-size:.78rem;color:var(--muted);}
+
+.cfg-p{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--surface);overflow:hidden;}
+.cfg-p-h{display:grid;grid-template-columns:auto auto 1fr 1fr auto;gap:10px;align-items:center;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s;}
+.cfg-p-h:hover{background:#eef3fb;}
+.cfg-p.collapsed .cfg-p-h{border-bottom-color:transparent;}
+.cfg-p .chev{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:.7rem;transition:transform .2s var(--ease);}
+.cfg-p:not(.collapsed) .chev{transform:rotate(90deg);color:var(--ms-blue);}
+.cfg-p .summary{font-size:.72rem;color:var(--muted);margin-left:34px;padding:0 12px 8px;display:none;}
+.cfg-p.collapsed .summary{display:block;}
+.cfg-p.collapsed .cfg-p-body{display:none;}
+.cfg-p-h .dot{width:24px;height:24px;border-radius:50%;color:#fff;font-weight:700;font-size:.74rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cfg-p-h input{font-family:inherit;font-size:.88rem;padding:6px 9px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);width:100%;}
+.cfg-p-h input:focus{outline:none;border-color:var(--ms-blue);box-shadow:0 0 0 3px rgba(0,120,212,.1);}
+.cfg-p-h .pacts{display:flex;gap:4px;}
+.cfg-p-h .pacts button{background:transparent;border:1px solid transparent;width:26px;height:26px;border-radius:6px;cursor:pointer;color:var(--muted);font-size:.85rem;}
+.cfg-p-h .pacts button:hover{background:#fff;border-color:var(--line);color:var(--ink);}
+.cfg-p-h .pacts button.del:hover{color:#be123c;border-color:#be123c;}
+.cfg-p-body{padding:10px 12px 12px;}
+.cfg-nlbl{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:4px 0 6px;}
+.cfg-nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:5px;margin-bottom:8px;}
+.cfg-node{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:7px;cursor:pointer;font-size:.82rem;color:var(--ink-2);background:#fff;border:1px solid var(--line);transition:background .12s,border-color .12s;}
+.cfg-node:hover{background:var(--surface-2);}
+.cfg-node.on{background:rgba(0,120,212,.08);border-color:var(--ms-blue);color:var(--ink);font-weight:600;}
+.cfg-node .sw{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cfg-node input{margin:0;flex-shrink:0;}
+
+.cfg-edges{margin-top:8px;border-top:1px dashed var(--line);padding-top:10px;}
+.cfg-egroup{margin-bottom:9px;}
+.cfg-egroup .ehead{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.cfg-egroup .ehead .sw{width:9px;height:9px;border-radius:50%;}
+.cfg-elist{display:flex;flex-wrap:wrap;gap:5px;padding-left:16px;}
+.cfg-edge{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;font-size:.74rem;cursor:pointer;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);transition:background .12s;}
+.cfg-edge:hover{background:#fff;}
+.cfg-edge.on{background:rgba(120,195,255,.18);border-color:var(--ms-blue);color:var(--ms-deep);font-weight:600;}
+.cfg-edge input{display:none;}
+
+.cfg-empty{padding:40px 22px;text-align:center;color:var(--muted);font-size:.9rem;}
+.cfg-renamebox{display:flex;gap:6px;align-items:center;padding:8px 10px;background:var(--surface-2);border-radius:8px;margin-bottom:8px;}
+.cfg-renamebox input{flex:1;font-family:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:.84rem;}
+@media(max-width:820px){
+  .cfg-card{grid-template-columns:1fr;height:92vh;}
+  .cfg-rail{max-height:38%;border-right:none;border-bottom:1px solid var(--line);}
+}
 </style>
 </head>
 <body>
@@ -228,7 +314,7 @@ footer{color:var(--muted);font-size:.82rem;padding:26px 0 36px;text-align:center
     <h1>An integrated constellation —<br/>not a single tool.</h1>
     <p class="lede">Every employee experiences AI differently. Microsoft meets each persona where they are and grows with them — from quick answers to full agentic orchestration, all under one identity and governance plane.</p>
     <div class="hgrid">
-      <div class="stat"><div class="k">6 personas</div><div class="l">Every kind of worker, every comfort level</div></div>
+      <div class="stat"><div class="k"><span id="personaCount">6</span> personas</div><div class="l">Every kind of worker, every comfort level</div></div>
       <div class="stat"><div class="k">20+ capabilities</div><div class="l">Chat through Foundry through governance</div></div>
       <div class="stat"><div class="k">1,300+ connectors</div><div class="l">Power Platform + MCP + custom extension</div></div>
       <div class="stat"><div class="k">One control plane</div><div class="l">Agent365 governs every agent — even non-Microsoft</div></div>
@@ -243,6 +329,7 @@ footer{color:var(--muted);font-size:.82rem;padding:26px 0 36px;text-align:center
       <div>
         <h2>Pick a persona — watch their journey light up.</h2>
         <p>Each path is organic — shaped by what they need and how deeply they trust the platform. Click any star to explore it.</p>
+        <span class="cfg-pill" id="tplPill" title="Configure personas & templates (Ctrl/Cmd+Shift+O)"><span class="gear">⚙</span> Template: <b id="tplPillName">Healthcare Payor</b></span>
       </div>
       <button class="reset-btn" id="resetBtn">Clear selection</button>
     </div>
@@ -511,6 +598,42 @@ footer{color:var(--muted);font-size:.82rem;padding:26px 0 36px;text-align:center
   </div>
 </div>
 
+<!-- CONFIG MODAL -->
+<div class="cfg-ov" id="cfgOv" role="dialog" aria-modal="true" aria-labelledby="cfgTitle">
+  <div class="cfg-card">
+    <aside class="cfg-rail">
+      <div class="cfg-rail-h">
+        <h3>Templates</h3>
+        <p class="hint">Up to 7 personas per template. Active template drives the constellation.</p>
+      </div>
+      <div class="cfg-tlist" id="cfgTList"></div>
+      <div class="cfg-rail-actions">
+        <button class="cfg-btn" id="cfgNewBtn" title="Create a blank template">+ New</button>
+        <button class="cfg-btn" id="cfgDupBtn" title="Duplicate the active template">Duplicate</button>
+        <button class="cfg-btn" id="cfgImpBtn" title="Import JSON">Import</button>
+        <button class="cfg-btn" id="cfgExpBtn" title="Export active template as JSON">Export</button>
+        <button class="cfg-btn" id="cfgResetBtn" title="Reset the built-in template to defaults">Reset built-in</button>
+        <button class="cfg-btn danger" id="cfgDelBtn" title="Delete active template (built-in cannot be deleted)">Delete</button>
+      </div>
+    </aside>
+    <main class="cfg-main">
+      <header class="cfg-main-h">
+        <div>
+          <h2 id="cfgTitle">Configure template</h2>
+          <div class="name-row">
+            <span style="font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase;">Name:</span>
+            <input class="cfg-tname" id="cfgTNameInput" type="text" maxlength="60"/>
+          </div>
+        </div>
+        <button class="cfg-cclose" id="cfgCloseBtn" aria-label="Close">✕</button>
+      </header>
+      <div class="cfg-body" id="cfgBody"></div>
+    </main>
+  </div>
+  <input type="file" id="cfgImpFile" accept="application/json,.json" style="display:none"/>
+</div>
+<button class="cfg-fab" id="cfgFab" aria-label="Configure personas (Ctrl/Cmd+Shift+O)" title="Configure personas (Ctrl/Cmd+Shift+O)">⚙</button>
+
 <script>
 /* ============================================================  IQ modal data  ============================================================ */
 /* ============================================================
@@ -774,9 +897,11 @@ const EDGES=[
 ];
 
 /* ============================================================
-   Personas
+   Personas — SEED data for the built-in "Healthcare Payor" template.
+   The live, render-time persona array is `PERSONAS` (let), populated
+   from the active template by applyActiveTemplate().
    ============================================================ */
-const PERSONAS=[
+const SEED_PERSONAS=[
   {id:"executive", initial:"C", name:"C-Suite & Executive", role:"CEO · CMO · CFO · Board",
    color:"#1d4ed8", trust:42,
    intro:"Executives need synthesized intelligence across clinical outcomes, financial performance, and workforce metrics — without changing how they work. <b>M365 Copilot Chat grounded in Work IQ</b> is the natural anchor: the boardroom briefing delivered instantly, grounded in the Microsoft Graph and the organization's own data. They don't need a new tool — the intelligence arrives inside the tools they already use every day.",
@@ -871,6 +996,9 @@ const PERSONAS=[
    ]},
 ];
 
+// Runtime personas — populated from the active template via applyActiveTemplate().
+let PERSONAS = [];
+
 /* ============================================================
    Build SVG
    ============================================================ */
@@ -949,18 +1077,21 @@ NODES.forEach(n=>{
 });
 
 /* ============================================================
-   Persona chips
+   Persona chips — re-rendered whenever the active template changes.
    ============================================================ */
-const pEl=document.getElementById("personas");
-PERSONAS.forEach(p=>{
-  const b=document.createElement("button");
-  b.className="persona"; b.dataset.id=p.id; b.setAttribute("aria-pressed","false");
-  b.innerHTML=`<div class="dot" style="background:${p.color}">${p.initial}</div>
-    <div class="name">${p.name}</div><div class="role">${p.role}</div>
-    <div class="tbar"><i style="width:${p.trust}%"></i></div>`;
-  b.addEventListener("click",()=>selectPersona(p.id));
-  pEl.appendChild(b);
-});
+function renderPersonaChips(){
+  const pEl=document.getElementById("personas");
+  pEl.innerHTML="";
+  PERSONAS.forEach(p=>{
+    const b=document.createElement("button");
+    b.className="persona"; b.dataset.id=p.id; b.setAttribute("aria-pressed","false");
+    b.innerHTML=`<div class="dot" style="background:${p.color}">${p.initial}</div>
+      <div class="name">${p.name}</div><div class="role">${p.role}</div>
+      <div class="tbar"><i style="width:${p.trust}%"></i></div>`;
+    b.addEventListener("click",()=>selectPersona(p.id));
+    pEl.appendChild(b);
+  });
+}
 
 /* ============================================================
    Cap reference grid
@@ -990,13 +1121,15 @@ function selectPersona(pid){
   curPersona=pid;
   document.querySelectorAll(".persona").forEach(el=>el.setAttribute("aria-pressed",el.dataset.id===pid?"true":"false"));
   const lit=new Set(p.journey.map(s=>s.node));
+  // Build the explicit lit-edge set from each step's edges[] (per-persona, per-node selection).
+  const litEdges=new Set();
+  p.journey.forEach(s=>(s.edges||[]).forEach(other=>litEdges.add(ek(s.node,other))));
   stage.classList.add("sel");
   document.querySelectorAll(".nh").forEach(el=>el.classList.toggle("lit",lit.has(el.dataset.id)));
-  // Light up every edge where BOTH endpoints are lit — shows the full web of value
   document.querySelectorAll(".edge").forEach(e=>{
-    const both = lit.has(e.dataset.a) && lit.has(e.dataset.b);
-    e.classList.toggle("lit", both);
-    e.classList.toggle("flow", both);
+    const isLit=litEdges.has(ek(e.dataset.a,e.dataset.b));
+    e.classList.toggle("lit",isLit);
+    e.classList.toggle("flow",isLit);
   });
   renderPersonaPanel(p);
   document.getElementById("stageHint").textContent=`Following ${p.name}`;
@@ -1065,7 +1198,7 @@ function renderNodePanel(n,sticky){
     ${users.length?`<div class="who-list">${users.map(p=>`
       <div class="who-item">
         <div class="who-dot" style="background:${p.color};color:#0a1b3d">${p.initial}</div>
-        <span><b>${p.name}</b> — ${p.journey.find(s=>s.node===n.id).note}</span>
+        <span><b>${p.name}</b>${p.role?` — ${p.role}`:""}</span>
       </div>`).join("")}</div>`:``}`;
 }
 
@@ -1084,6 +1217,485 @@ function renderPersonaPanel(p){
     <div class="journey-h">${steps}</div>`;
 }
 
+/* ============================================================
+   TEMPLATE / PERSONA CONFIG SYSTEM
+   ============================================================ */
+const STORE_KEY = "mscai.templates.v1";
+const PALETTE = ["#1d4ed8","#0891b2","#7c3aed","#15803d","#d97706","#ea580c","#be123c"];
+const BUILTIN_ID = "healthcare-payor";
+const MAX_PERSONAS = 7;
+
+// Neighbors of a node, computed from the EDGES catalog.
+const NEIGHBORS = (() => {
+  const m = {};
+  NODES.forEach(n => { m[n.id] = []; });
+  EDGES.forEach(([a,b]) => {
+    if (m[a] && !m[a].includes(b)) m[a].push(b);
+    if (m[b] && !m[b].includes(a)) m[b].push(a);
+  });
+  return m;
+})();
+const neighborsOf = id => NEIGHBORS[id] || [];
+
+function uid(prefix){ return prefix + "-" + Math.random().toString(36).slice(2,8) + Date.now().toString(36).slice(-4); }
+function escapeHtml(s){ return String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+function deriveInitial(name){
+  const s = String(name||"").trim();
+  if (!s) return "?";
+  // Take first letter of each whitespace-separated word, max 2.
+  const parts = s.split(/[\s\-_/]+/).filter(Boolean);
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+  return s.slice(0, Math.min(2, s.length));
+}
+
+// Build the built-in "Healthcare Payor" template by transforming SEED_PERSONAS.
+// Edges-per-node default to the auto-derived "any neighbor also in journey" set
+// so the visual exactly matches the previous hardcoded behavior.
+function buildBuiltinTemplate(){
+  return {
+    id: BUILTIN_ID,
+    name: "Healthcare Payor",
+    builtin: true,
+    personas: SEED_PERSONAS.map(p => {
+      const set = new Set(p.journey.map(s => s.node));
+      return {
+        id: p.id,
+        name: p.name,
+        tagline: p.role,
+        color: p.color, // preserve seed colors for visual fidelity
+        nodes: p.journey.map(s => ({
+          nodeId: s.node,
+          edges: neighborsOf(s.node).filter(other => set.has(other))
+        }))
+      };
+    })
+  };
+}
+
+function defaultStore(){
+  return { activeId: BUILTIN_ID, templates: [ buildBuiltinTemplate() ] };
+}
+
+function loadStore(){
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return defaultStore();
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.templates)) return defaultStore();
+    // Ensure built-in template is always present (re-seed if user deleted it via direct storage edits).
+    if (!parsed.templates.some(t => t.id === BUILTIN_ID)) {
+      parsed.templates.unshift(buildBuiltinTemplate());
+    } else {
+      // Mark builtin (in case the flag was stripped on import).
+      parsed.templates.forEach(t => { if (t.id === BUILTIN_ID) t.builtin = true; });
+    }
+    if (!parsed.templates.find(t => t.id === parsed.activeId)) parsed.activeId = parsed.templates[0].id;
+    return parsed;
+  } catch (e) {
+    console.warn("Template store corrupt, resetting:", e);
+    return defaultStore();
+  }
+}
+
+function saveStore(){
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(STORE)); }
+  catch(e) { console.warn("Template store save failed:", e); }
+}
+
+let STORE = loadStore();
+
+function getActiveTemplate(){
+  return STORE.templates.find(t => t.id === STORE.activeId) || STORE.templates[0];
+}
+
+// Defensive: filter out personas, nodes, or edges that reference unknown ids.
+function sanitizeTemplate(t){
+  return {
+    ...t,
+    personas: (t.personas || []).slice(0, MAX_PERSONAS).map(p => ({
+      ...p,
+      nodes: (p.nodes || [])
+        .filter(n => nById[n.nodeId])
+        .map(n => ({
+          nodeId: n.nodeId,
+          edges: (n.edges || []).filter(e => nById[e] && eMap.has(ek(n.nodeId, e)))
+        }))
+    }))
+  };
+}
+
+// Build the runtime `PERSONAS` array from a template, in the shape the rest
+// of the rendering code expects (color, initial, role, intro, journey).
+function buildRuntimePersonas(template){
+  const t = sanitizeTemplate(template);
+  return t.personas.map((p, i) => ({
+    id: p.id || ("p" + i),
+    name: p.name || "Persona " + (i+1),
+    role: p.tagline || "",
+    initial: deriveInitial(p.name),
+    color: p.color || PALETTE[i % PALETTE.length],
+    trust: 50,
+    intro: p.tagline ? `<b>${escapeHtml(p.tagline)}</b>` : "",
+    journey: p.nodes.map(n => {
+      const nd = nById[n.nodeId];
+      // Auto-generated note: short, derived from node summary. Stripped of inline tags.
+      let note = "";
+      if (nd && nd.summary) {
+        const plain = nd.summary.replace(/<[^>]+>/g, "");
+        note = plain.length > 120 ? plain.slice(0, 117).trimEnd() + "…" : plain;
+      }
+      return {
+        node: n.nodeId,
+        note,
+        edges: n.edges
+      };
+    })
+  }));
+}
+
+function applyActiveTemplate(){
+  const tpl = getActiveTemplate();
+  const prevSelected = curPersona;
+  PERSONAS = buildRuntimePersonas(tpl);
+  renderPersonaChips();
+  // Update header pill.
+  const pn = document.getElementById("tplPillName");
+  if (pn) pn.textContent = tpl.name || "Untitled";
+  // Update persona-count stat in the hero.
+  const pc = document.getElementById("personaCount");
+  if (pc) pc.textContent = PERSONAS.length;
+  // Preserve the previously selected persona if it still exists; otherwise clear.
+  if (prevSelected && PERSONAS.find(p => p.id === prevSelected)) {
+    curPersona = null; // force selectPersona to re-apply (don't toggle off)
+    selectPersona(prevSelected);
+  } else if (curPersona) {
+    clearSel();
+  }
+}
+
+/* ============================================================
+   Config modal UI
+   ============================================================ */
+const cfgOv = document.getElementById("cfgOv");
+const cfgTList = document.getElementById("cfgTList");
+const cfgBody = document.getElementById("cfgBody");
+const cfgTNameInput = document.getElementById("cfgTNameInput");
+const cfgDelBtn = document.getElementById("cfgDelBtn");
+const cfgResetBtn = document.getElementById("cfgResetBtn");
+
+function openConfig(){
+  renderConfig();
+  cfgOv.classList.add("open");
+}
+function closeConfig(){ cfgOv.classList.remove("open"); }
+function toggleConfig(){ cfgOv.classList.contains("open") ? closeConfig() : openConfig(); }
+
+function renderConfig(){
+  // Template list rail
+  cfgTList.innerHTML = "";
+  STORE.templates.forEach(t => {
+    const it = document.createElement("div");
+    it.className = "cfg-titem" + (t.id === STORE.activeId ? " active" : "");
+    it.dataset.id = t.id;
+    it.innerHTML = `<span>${escapeHtml(t.name||"Untitled")}</span>${t.builtin?`<span class="tbadge">Built-in</span>`:""}`;
+    it.addEventListener("click", () => {
+      STORE.activeId = t.id;
+      saveStore();
+      applyActiveTemplate();
+      renderConfig();
+    });
+    cfgTList.appendChild(it);
+  });
+
+  const tpl = getActiveTemplate();
+  cfgTNameInput.value = tpl.name || "";
+  cfgDelBtn.disabled = !!tpl.builtin;
+  cfgResetBtn.style.display = tpl.builtin ? "" : "none";
+
+  // Persona editor
+  cfgBody.innerHTML = "";
+  const bar = document.createElement("div");
+  bar.className = "cfg-pbar";
+  bar.innerHTML = `<div class="count">${tpl.personas.length} of ${MAX_PERSONAS} personas</div>
+    <button class="cfg-btn primary" id="cfgAddPersona" ${tpl.personas.length >= MAX_PERSONAS ? "disabled" : ""}>+ Add persona</button>`;
+  cfgBody.appendChild(bar);
+  bar.querySelector("#cfgAddPersona").addEventListener("click", () => {
+    if (tpl.personas.length >= MAX_PERSONAS) return;
+    tpl.personas.push({
+      id: uid("p"),
+      name: "New persona",
+      tagline: "",
+      nodes: []
+    });
+    persistAndRefresh();
+  });
+
+  if (tpl.personas.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "cfg-empty";
+    empty.textContent = "No personas yet. Click \"+ Add persona\" to start.";
+    cfgBody.appendChild(empty);
+    return;
+  }
+
+  tpl.personas.forEach((p, idx) => {
+    cfgBody.appendChild(renderPersonaEditor(tpl, p, idx));
+  });
+}
+
+function renderPersonaEditor(tpl, p, idx){
+  const color = p.color || PALETTE[idx % PALETTE.length];
+  const nodeCount = (p.nodes || []).length;
+  const edgeCount = (p.nodes || []).reduce((s, n) => s + (n.edges?.length || 0), 0);
+  const wrap = document.createElement("div");
+  wrap.className = "cfg-p collapsed";
+  wrap.innerHTML = `
+    <div class="cfg-p-h">
+      <span class="chev" aria-hidden="true">▶</span>
+      <span class="dot" style="background:${color}">${escapeHtml(deriveInitial(p.name))}</span>
+      <input type="text" class="pname" placeholder="Persona name" value="${escapeHtml(p.name||"")}" maxlength="60"/>
+      <input type="text" class="ptag" placeholder="Tagline (e.g. CEO · CMO · CFO)" value="${escapeHtml(p.tagline||"")}" maxlength="120"/>
+      <div class="pacts">
+        <button class="up" title="Move up" ${idx===0?"disabled":""}>↑</button>
+        <button class="dn" title="Move down" ${idx===tpl.personas.length-1?"disabled":""}>↓</button>
+        <button class="del" title="Remove persona">✕</button>
+      </div>
+    </div>
+    <div class="summary">${nodeCount} node${nodeCount===1?"":"s"} · ${edgeCount} connection${edgeCount===1?"":"s"} — click to expand</div>
+    <div class="cfg-p-body">
+      <div class="cfg-nlbl">Select nodes that light up for this persona</div>
+      <div class="cfg-nodes"></div>
+      <div class="cfg-edges"></div>
+    </div>`;
+
+  // Header click toggles collapsed state — but ignore clicks on inputs and action buttons.
+  wrap.querySelector(".cfg-p-h").addEventListener("click", e => {
+    if (e.target.closest("input, button")) return;
+    wrap.classList.toggle("collapsed");
+  });
+
+  const nameI = wrap.querySelector(".pname");
+  const tagI  = wrap.querySelector(".ptag");
+  nameI.addEventListener("input", () => { p.name = nameI.value; wrap.querySelector(".dot").textContent = deriveInitial(p.name); persistAndPreview(); });
+  tagI.addEventListener("input",  () => { p.tagline = tagI.value; persistAndPreview(); });
+
+  wrap.querySelector(".up").addEventListener("click", () => {
+    if (idx===0) return;
+    [tpl.personas[idx-1], tpl.personas[idx]] = [tpl.personas[idx], tpl.personas[idx-1]];
+    persistAndRefresh();
+  });
+  wrap.querySelector(".dn").addEventListener("click", () => {
+    if (idx===tpl.personas.length-1) return;
+    [tpl.personas[idx+1], tpl.personas[idx]] = [tpl.personas[idx], tpl.personas[idx+1]];
+    persistAndRefresh();
+  });
+  wrap.querySelector(".del").addEventListener("click", () => {
+    tpl.personas.splice(idx, 1);
+    persistAndRefresh();
+  });
+
+  // Node checklist
+  const nodesEl = wrap.querySelector(".cfg-nodes");
+  const selSet = new Set(p.nodes.map(n => n.nodeId));
+  NODES.forEach(n => {
+    const lbl = document.createElement("label");
+    lbl.className = "cfg-node" + (selSet.has(n.id) ? " on" : "");
+    lbl.innerHTML = `<input type="checkbox" ${selSet.has(n.id)?"checked":""}/>
+      <span class="sw" style="background:${n.external?"transparent;border:1.5px dashed #94a3b8":n.color}"></span>
+      <span>${escapeHtml(n.label)}</span>`;
+    const cb = lbl.querySelector("input");
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        if (!p.nodes.find(x => x.nodeId === n.id)) {
+          // Default new node's edges to all neighbors that are also selected by this persona.
+          const sel = new Set(p.nodes.map(x => x.nodeId));
+          const defaults = neighborsOf(n.id).filter(o => sel.has(o));
+          p.nodes.push({ nodeId: n.id, edges: defaults });
+        }
+      } else {
+        p.nodes = p.nodes.filter(x => x.nodeId !== n.id);
+      }
+      // Refresh the editor pane (edges section depends on node selection).
+      const wasExpanded = !wrap.classList.contains("collapsed");
+      const newPanel = renderPersonaEditor(tpl, p, idx);
+      if (wasExpanded) newPanel.classList.remove("collapsed");
+      wrap.replaceWith(newPanel);
+      persistAndPreview();
+    });
+    nodesEl.appendChild(lbl);
+  });
+
+  // Edge sub-section: only show for selected nodes that have neighbors.
+  const edgesEl = wrap.querySelector(".cfg-edges");
+  if (p.nodes.length > 0) {
+    const heading = document.createElement("div");
+    heading.className = "cfg-nlbl";
+    heading.textContent = "For each selected node, choose which connections animate (dotted line)";
+    edgesEl.appendChild(heading);
+
+    p.nodes.forEach(pn => {
+      const node = nById[pn.nodeId]; if (!node) return;
+      const neigh = neighborsOf(pn.nodeId);
+      if (neigh.length === 0) return;
+      const g = document.createElement("div");
+      g.className = "cfg-egroup";
+      g.innerHTML = `<div class="ehead"><span class="sw" style="background:${node.external?"transparent;border:1.5px dashed #94a3b8":node.color}"></span>${escapeHtml(node.label)}</div>
+        <div class="cfg-elist"></div>`;
+      const list = g.querySelector(".cfg-elist");
+      const onSet = new Set(pn.edges || []);
+      neigh.forEach(otherId => {
+        const other = nById[otherId]; if (!other) return;
+        const lbl = document.createElement("label");
+        lbl.className = "cfg-edge" + (onSet.has(otherId) ? " on" : "");
+        lbl.innerHTML = `<input type="checkbox" ${onSet.has(otherId)?"checked":""}/><span>→ ${escapeHtml(other.label)}</span>`;
+        const cb = lbl.querySelector("input");
+        cb.addEventListener("change", () => {
+          if (cb.checked) {
+            if (!pn.edges.includes(otherId)) pn.edges.push(otherId);
+            lbl.classList.add("on");
+          } else {
+            pn.edges = pn.edges.filter(e => e !== otherId);
+            lbl.classList.remove("on");
+          }
+          persistAndPreview();
+        });
+        list.appendChild(lbl);
+      });
+      edgesEl.appendChild(g);
+    });
+  }
+
+  return wrap;
+}
+
+function persistAndPreview(){
+  saveStore();
+  // Live update the constellation behind the modal.
+  applyActiveTemplate();
+}
+function persistAndRefresh(){
+  saveStore();
+  applyActiveTemplate();
+  renderConfig();
+}
+
+// Template name input
+cfgTNameInput.addEventListener("input", () => {
+  const tpl = getActiveTemplate();
+  tpl.name = cfgTNameInput.value;
+  saveStore();
+  // Update rail item label and header pill.
+  const item = cfgTList.querySelector(`.cfg-titem[data-id="${tpl.id}"] span`);
+  if (item) item.textContent = tpl.name || "Untitled";
+  const pn = document.getElementById("tplPillName");
+  if (pn) pn.textContent = tpl.name || "Untitled";
+});
+
+// Rail action buttons
+document.getElementById("cfgNewBtn").addEventListener("click", () => {
+  const t = { id: uid("tpl"), name: "New template", personas: [] };
+  STORE.templates.push(t);
+  STORE.activeId = t.id;
+  persistAndRefresh();
+  renderConfig();
+});
+document.getElementById("cfgDupBtn").addEventListener("click", () => {
+  const src = getActiveTemplate();
+  const copy = JSON.parse(JSON.stringify(src));
+  copy.id = uid("tpl");
+  copy.name = (src.name || "Untitled") + " (copy)";
+  delete copy.builtin;
+  STORE.templates.push(copy);
+  STORE.activeId = copy.id;
+  persistAndRefresh();
+  renderConfig();
+});
+cfgDelBtn.addEventListener("click", () => {
+  const tpl = getActiveTemplate();
+  if (tpl.builtin) return;
+  if (!confirm(`Delete template "${tpl.name}"? This cannot be undone.`)) return;
+  STORE.templates = STORE.templates.filter(t => t.id !== tpl.id);
+  if (STORE.templates.length === 0) STORE.templates.push(buildBuiltinTemplate());
+  STORE.activeId = STORE.templates[0].id;
+  persistAndRefresh();
+  renderConfig();
+});
+cfgResetBtn.addEventListener("click", () => {
+  const tpl = getActiveTemplate();
+  if (!tpl.builtin) return;
+  if (!confirm("Reset \"Healthcare Payor\" to factory defaults?")) return;
+  const fresh = buildBuiltinTemplate();
+  Object.assign(tpl, fresh);
+  persistAndRefresh();
+  renderConfig();
+});
+document.getElementById("cfgExpBtn").addEventListener("click", () => {
+  const tpl = getActiveTemplate();
+  const blob = new Blob([JSON.stringify(tpl, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `template-${(tpl.id||"export")}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+});
+const cfgImpFile = document.getElementById("cfgImpFile");
+document.getElementById("cfgImpBtn").addEventListener("click", () => cfgImpFile.click());
+cfgImpFile.addEventListener("change", () => {
+  const f = cfgImpFile.files && cfgImpFile.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const data = JSON.parse(r.result);
+      const incoming = Array.isArray(data) ? data : [data];
+      let imported = 0;
+      incoming.forEach(raw => {
+        if (!raw || !Array.isArray(raw.personas)) return;
+        const t = {
+          id: raw.id && !STORE.templates.find(x => x.id === raw.id) ? raw.id : uid("tpl"),
+          name: raw.name || "Imported template",
+          personas: raw.personas
+        };
+        delete t.builtin;
+        STORE.templates.push(t);
+        STORE.activeId = t.id;
+        imported++;
+      });
+      if (imported === 0) { alert("No valid templates found in the file."); }
+      else { persistAndRefresh(); renderConfig(); }
+    } catch (e) {
+      alert("Could not parse JSON: " + e.message);
+    } finally {
+      cfgImpFile.value = "";
+    }
+  };
+  r.readAsText(f);
+});
+
+// Close handlers
+document.getElementById("cfgCloseBtn").addEventListener("click", closeConfig);
+cfgOv.addEventListener("click", e => { if (e.target === cfgOv) closeConfig(); });
+
+// Keyboard shortcut: Ctrl/Cmd+Shift+O.
+// Note: Escape is already handled by the IQ-modal listener above; we add the
+// same behavior for the config modal.
+document.addEventListener("keydown", e => {
+  const key = (e.key || "").toLowerCase();
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && key === "o") {
+    e.preventDefault();
+    toggleConfig();
+  } else if (e.key === "Escape" && cfgOv.classList.contains("open")) {
+    closeConfig();
+  }
+});
+
+// Gear FAB + header pill both open the modal.
+document.getElementById("cfgFab").addEventListener("click", openConfig);
+document.getElementById("tplPill").addEventListener("click", openConfig);
+
+// Initialize.
+applyActiveTemplate();
 renderDefault();
 </script>
 </body>
